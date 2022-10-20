@@ -1,4 +1,5 @@
-const url = 'https://www.lianfazj.com'
+// const url = 'https://www.lianfazj.com'
+const url = 'https://k.etctradwallet.com'
 export default {
   DOMAIN: url,
   // baseURL: 'http://www.shehua56.com',
