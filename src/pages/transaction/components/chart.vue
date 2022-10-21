@@ -1,5 +1,5 @@
 <template>
-  <div id="chartInfo" class="wrapper" style="width: 100%;">
+  <div id="chartInfo" class="wrapper"  style="width: 100%" :style="{background: this.$store.state.systemColor === 'red-bg' ? '#fff' : '#000'}">
     <!-- <div class="header">
       <mt-header :title="detail.name+' ('+detail.code+')'">
         <router-link to="/list" slot="left">
