@@ -272,7 +272,7 @@
 				var marquee = this.$refs.marqueeBox;
 				console.log(marquee)
 				var disx = 0; // 位移距离
-				// console.log(width)
+				// console.log(width) 
 				var allwidth = 0
 				for (var i = 0; i < this.noticeList.length; i++) {
 					allwidth += this.$refs.marquee[i].getBoundingClientRect().width
@@ -283,7 +283,7 @@
 						disx = 0; // 如果位移超过文字宽度，则回到起点  marquee-list的margin值
 					}
 					// console.log(disx,'disx')
-					// marquee.style.transform =
+					// marquee.style.transform = 
 					marquee.style.transform = 'translateX(' + disx + 'px)'
 				}, 30) //滚动速度
 			},
