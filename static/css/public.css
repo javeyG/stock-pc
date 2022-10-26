@@ -2,7 +2,7 @@
 	border: none !important;
 }
 .goog-te-menu-frame .text{
-	color: red !important; 
+	color: red !important;
 }
 .goog-te-menu-frame{
 	width: 96px !important;
@@ -25,7 +25,7 @@
 	height: 0 !important;
 }
 .goog-te-menu-frame {
-	
+
 		padding: 10px 0;
 	    margin: 5px 0;
 	    background-color: #fff;
@@ -15945,7 +15945,7 @@ body {
 .h-nav-menu li.banner-menu {
   opacity: 1;
   color: #333 ;
-  background: rgba(235, 238, 245, .5) 
+  background: rgba(235, 238, 245, .5)
 }
 
 .loginbg-box {
@@ -16166,7 +16166,7 @@ body {
 .red-bg .el-header, .red-bg .header {
   background-color: #c11815
 }
- 
+
 .red-bg .market-data span{
   font-size: 16px;
 

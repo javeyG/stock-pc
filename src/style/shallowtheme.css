@@ -282,8 +282,7 @@
 }
 .red-bg .honmeIndex .contentIndex .aboutus {
   width: 75%;
-  margin: 0 auto;
-  margin-top: 800px;
+  margin: 50px auto 0 auto;
 }
 .red-bg .honmeIndex .contentIndex .aboutus .hongtiao {
   width: 67px;
@@ -2620,3 +2619,4 @@
   border-radius: 3px;
   color: #FFF;
 }
+/*# sourceMappingURL=shallowtheme.css.map */

@@ -287,10 +287,36 @@
   overflow: hidden;
   padding-top: 120px;
 }
+.black-bg .honmeIndex .contentIndex .realTime {
+  background: transparent;
+}
+.black-bg .honmeIndex .contentIndex .news-box .news-box-left ul {
+  padding: 0 0 40px;
+  background: transparent;
+}
+.black-bg .honmeIndex .contentIndex .news-box .news-box-left ul li {
+  border-bottom: 1px solid #999;
+}
+.black-bg .honmeIndex .contentIndex .news-box .news-box-left ul li h4 {
+  color: #fff;
+}
+.black-bg .honmeIndex .contentIndex .news-box .news-box-right .newsFlsh-con {
+  background: transparent;
+}
+.black-bg .honmeIndex .contentIndex .news-box .news-box-right .newsFlsh-con:after {
+  background: #999;
+}
+.black-bg .honmeIndex .contentIndex .news-box .news-box-right .newsFlsh-con ul li p {
+  color: #fff;
+}
+.black-bg .honmeIndex .contentIndex .news-box .news-box-right .newsFlsh-con ul li:before {
+  border-top: 7px solid transparent;
+  border-bottom: 7px solid transparent;
+  border-left: 10px solid #999;
+}
 .black-bg .honmeIndex .contentIndex .aboutus {
   width: 75%;
-  margin: 0 auto;
-  margin-top: 800px;
+  margin: 50px auto 0 auto;
 }
 .black-bg .honmeIndex .contentIndex .aboutus .hongtiao {
   width: 67px;
@@ -2585,3 +2611,4 @@
   background-color: #052030;
   color: #fff;
 }
+/*# sourceMappingURL=deeptheme.css.map */
