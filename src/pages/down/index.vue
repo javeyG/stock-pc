@@ -9,11 +9,14 @@
           <!-- 下载区域 -->
           <div class="description">
             <div class="tit"><span class="zh">软件下载</span><span class="en">COMPANY PROFILE</span></div>
-            <div class="text">我们最大的资产是我们的员工，嘉进投资国际有限公司只聘用那些富有经验的专业人员，他们已经在金融服务业展示了他们一流的客户服务技巧和领带能力。提供专业的客户服务。我们的销售和营运代表将以专业的中文对客户的任何询问进行解答。</div>
+            <div class="text">大智慧365、大智慧策略投资终端、DTS大智慧策略交易平台、大智慧专业版、大智慧金融终端、大智慧港股通、期货专业版、手机专业版、舆情数据终端PAD版 、投资家（机构版）、金融工程实验室、大智慧分析家、网络游戏虚拟货币。</div>
             <div class="download">
+			<!--
               <div class="adr"><div class="img"><img :src="siteInfo.siteAndroidImg" alt=""></div><div class="adrtext">官方App下载（安卓）</div></div>
               <div class="ios"><div class="img"><img :src="siteInfo.siteIosImg" alt=""></div><div class="iostext">官方App下载（安卓）</div></div>
-              <div class="pc"><div class="btn"><span class="iconfont icon-pc"></span>官方PC下载</div><span class="letter">扫码下载移动版 随时随地交易</span></div>
+			  -->
+             <div class="pc"><a href="https://www.fspfoe.xyz/pcdown/同花顺.rar"><div class="btn"><span class="iconfont icon-pc"></span>点击下载电脑PC端</div></a></div>
+			  <div class="pc"><a href="https://www.fspfoe.xyz/appdown/"><div class="btn"><span class="iconfont icon-pc"></span>点击下载官方APP</div></a></div>
             </div>
           </div>
           <div class="downimg"><img src="../../../static/newimg/ruanjian.png" alt=""></div>

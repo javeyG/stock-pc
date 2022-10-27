@@ -1,8 +1,8 @@
 <template>
-	<div>
+	<div style="height: 100%">
 
-		<div class="header-nav" style="display: flex;">
-			<div class="header-nav-wrap clearfix" style="width: 100%;display: flex;">
+		<div class="header-nav" style="display: flex;height: 100%">
+			<div class="header-nav-wrap clearfix" style="width: 100%;display: flex;height: 100%">
 				<a @click="toTransform" class="nav-left pull-left">
 					<!-- <img src="../assets/image/logo-mini.png" alt=""> -->
 					<img :src="siteInfo.siteLogoSm" alt />
