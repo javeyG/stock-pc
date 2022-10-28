@@ -161,7 +161,16 @@
 						<div class="tab-box jiaoyi-000">
 							<el-tabs v-model="activeName" class="black-style" v-if="$store.state.haslogin">
 								<el-tab-pane label="入仓/出仓" name="zero">
-									<buy-box1 @selectDetailsItem="selectDetailsItem" :cutIndex="cutIndex" :detailsCont="detailsCont" :hasGetNewOrder="hasGetNewOrder" :handleOptions2="handleOptions2" :settingInfo="settingInfo" :code="code"></buy-box1>
+									<buy-box1
+                    @selectDetailsItem="selectDetailsItem"
+                    :cutIndex="cutIndex"
+                    :detailsCont="detailsCont"
+                    :hasGetNewOrder="hasGetNewOrder"
+                    :handleOptions2="handleOptions2"
+                    :handleOptions3="handleOptions3"
+                    :handleOptionsindex2="handleOptionsindex2"
+                    :settingInfo="settingInfo"
+                    :code="code"></buy-box1>
 								</el-tab-pane>
 								<el-tab-pane label="机构持仓" name="first">
 									<!-- 我的持仓 -->
@@ -372,10 +381,10 @@
 						name: "科创",
 						type: "four"
 					},
-					// {
-					// 	name: "期货",
-					// 	type: "five"
-					// },
+					{
+						name: "期货",
+						type: "five"
+					},
           {
             name: "美股",
             type: "six",
@@ -420,6 +429,7 @@
 				activeName: "zero",
 				haslogin: false,
         isShow: true,
+        timer: null,
 				detail: {},
 				hasChangeSell: 0, // 是否平仓 (融资) 平仓之后数字一直加
 				hasChangeSell2: 0, // 是否平仓 (指数) 平仓之后数字一直加

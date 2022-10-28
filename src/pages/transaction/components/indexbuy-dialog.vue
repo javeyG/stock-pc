@@ -147,6 +147,7 @@
             { required: true, message: '请选择买卖方向', trigger: 'blur' }
           ]
         },
+        siteInfo: {},
         settingInfo: {}, // 设置信息
         agree: true, // 协议
         buyNumber: 0 // 下单次数

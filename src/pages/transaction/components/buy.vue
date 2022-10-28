@@ -20,7 +20,7 @@
 					<span v-else>{{Number(item.price).toFixed(2)}}</span>
 				</div>
 				<div style="width: 20%;" :style="index==2?'color:#41A44F;':'color:#B12525'">{{item.volumes}}</div>
-			
+
 			</div>
 			<div style="display: flex;align-items: center;justify-content: center;">
 				<div class="buy-bottom-xianjia">
@@ -34,7 +34,7 @@
 					<span v-else>{{Number(item.price).toFixed(2)}}</span>
 				</div>
 				<div style="width: 20%;" :style="index==2?'color:#41A44F;':'color:#B12525'">{{item.volumes}}</div>
-			
+
 			</div>
 		</div>
 
@@ -74,7 +74,7 @@
 				<el-table-column prop="volumes" label="成交量"></el-table-column>
 			</el-table>
 		</div>
-		
+
 		 -->
 		<div class="listhi-cont" ref="test" :style="'height:'+windowHeight+'px;'" style="width: 100%;  padding: 20px 0 0 0;overflow: auto;">
 			<div style="display:flex;align-items: center; justify-content: center; margin-bottom: 20px;" >
@@ -132,6 +132,10 @@
 				default: function() {},
 			},
 			handleOptions3: {
+				type: Function,
+				default: function() {},
+			},
+      handleOptionsindex2: {
 				type: Function,
 				default: function() {},
 			},
@@ -735,7 +739,7 @@
 			height: 30px;
 			background: rgb(244, 245, 246);
 			border-radius: 3px;
-		
+
 		}
 		.buy-top-box {
 			padding-bottom: 5px;
@@ -758,7 +762,7 @@
 				}
 			}
 
-			
+
 
 			.buy-list-title {
 				font-size: 12px;
@@ -866,7 +870,7 @@
 				padding: 0 10px;
 			}
 
-			
+
 
 			.buy-list-title {
 				font-size: 12px;

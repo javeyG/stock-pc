@@ -657,6 +657,7 @@
 				console.log(newVal)
 				if (newVal !== oldVal) {
 					this.form.pageNum = 1;
+          console.log(333333333333333)
 					this.getList();
 				}
 			},
@@ -875,6 +876,7 @@
             pageSize: this.form.pageSize,
           }
         } else if (this.activeName === "serven") {
+          console.log('serven serven')
           // 港股
           opt = {
             stockPlate: "港股",
@@ -882,8 +884,7 @@
             pageNum: this.form.pageNum,
             pageSize: this.form.pageSize,
           }
-        }
-				if (this.activeName === 'start') {
+        } else if (this.activeName === 'start') {
 					opt = {
 						stockPlate: "创业",
 						keyWords: this.form.stock,
@@ -901,6 +902,7 @@
 				this.loading = true;
 				let data = null;
 				if (this.activeName === "first" || this.activeName === "four" || this.activeName === "six" || this.activeName === "serven") {
+          console.log('opt',opt)
 					data = await api.getStock(opt);
 				} else if (this.activeName === 'start') {
 					data = await api.getStock(opt);
@@ -912,13 +914,16 @@
 					//     this.list.push(element)
 					// });
 					this.list = data.data;
+          console.log(this.list)
 					// 出仓数据
-					var res = await api.findUserPositionByCode({
-						stockCode: data.data.list[0].code,
-					});
-					if (res.status == 0) {
-						this.$store.commit("setUserPositionData", res.data.list[0]);
-					}
+          if(data.data.list.length) {
+            var res = await api.findUserPositionByCode({
+              stockCode: data.data.list[0].code,
+            });
+            if (res.status == 0) {
+              this.$store.commit("setUserPositionData", res.data.list[0]);
+            }
+          }
 					this.total = data.data.total;
 					this.loading = false;
 				} else {
@@ -970,13 +975,12 @@
 						this.$store.commit('setUserPositionData', data.data.list[0])
 					}
 				})
-
-
 				// 股票交易
 				this.$router.push({
 					path: "/transaction",
 					query: {
 						code: row.futuresGid,
+						gid: row.futuresCode,
 						futuresInfo: row,
 					},
 				});
@@ -1005,7 +1009,6 @@
 				this.loading = false;
 			},
 			toTransaction2(row, column, event) {
-
 				api.findUserIndexPositionByCode({
 					indexGid: row.indexGid
 				}).then(data=>{
@@ -1014,7 +1017,6 @@
 						this.$store.commit('setUserPositionData', data.data.list[0])
 					}
 				})
-
 				// 指数交易
 				if (this.$store.state.haslogin) {
 					if (row.transState === 1) {
@@ -1024,6 +1026,7 @@
 							path: "/transaction",
 							query: {
 								code: row.indexGid,
+								gid: row.indexGid,
 							},
 						});
 					} else {
@@ -1053,7 +1056,7 @@
 					this.form.pageNum++;
 					this.loading = true;
 					let opt = null;
-					if (this.activeName === "first") {
+					if (this.activeName === "first" ) {
 						opt = {
 							keyWords: this.form.stock,
 							pageNum: 1,
@@ -1073,7 +1076,21 @@
 							pageNum: 1,
 							pageSize: this.form.pageSize * this.form.pageNum,
 						};
-					}else {
+					} else if ( this.activeName === "six" ) {
+            opt = {
+              stockPlate: "美股",
+              keyWords: this.form.stock,
+              pageNum: 1,
+              pageSize: this.form.pageSize * this.form.pageNum,
+            };
+          } else if (this.activeName === "serven") {
+            opt = {
+              stockPlate: "港股",
+              keyWords: this.form.stock,
+              pageNum: 1,
+              pageSize: this.form.pageSize * this.form.pageNum,
+            };
+          } else {
 						// 自选
 						opt = {
 							keyWords: this.form2.stockMy,
@@ -1087,7 +1104,7 @@
 					//     pageSize:this.form.pageSize * this.form.pageNum
 					// }
 					let data = null;
-					if (this.activeName === "first" || this.activeName === "four") {
+					if (this.activeName === "first" || this.activeName === "four" || this.activeName === "six" || this.activeName === "serven" ) {
 						data = await api.getStock(opt);
 					}else if (this.activeName == 'start') {
 						data = await api.getStock(opt);
