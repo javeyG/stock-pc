@@ -16,33 +16,18 @@
 				-->
              </div>
              <div class="right">
-			      
                  <div class="app">官方App下载</div>
-				 
                  <div class="pic">
-				 
                      <div class="pic_l">
-					 <!--
                          <div class="adrpic"><img :src="siteInfo.siteAndroidImg" alt=""></div>
-						 
                          <div class="adrtext">官方App下载（安卓）</div>
-						 -->
                      </div>
                      <div class="pic_r">
-					 <!--
                          <div class="iospic"><img :src="siteInfo.siteIosImg" alt=""></div>
-						 
                          <div class="iostext">官方App下载（苹果）</div>
-						 -->
                      </div>
-					 
                  </div>
-				 
-				<!--
-				 <a href="https://www.fspfoe.xyz/pcdown/同花顺.rar">
-                 <div class="pc"><span class="iconfont icon-pc"></span>点击下载电脑PC端</div>
-				 </a>
-				 -->
+                 <div class="pc"><span class="iconfont icon-pc"></span>官方PC下载</div>
              </div>
          </div>
          <div class="fot">
