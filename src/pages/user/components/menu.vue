@@ -42,7 +42,7 @@
       <router-link to="/fundssellorder" tag="li" v-if="$store.state.productSetting.fundsDisplay">
         <el-menu-item index="2-25"><span class="iconfont icon-yuandianxiao"></span>配资平仓</el-menu-item>
       </router-link>
-     
+
 
       <el-menu-item class="banner-menu" index="disabled" disabled>
         <i class="iconfont icon-jiaoyi1"></i>
@@ -91,9 +91,9 @@
       <router-link to="/detaillist" tag="li">
         <el-menu-item index="2-4"><span class="iconfont icon-yuandianxiao"></span>资金明细</el-menu-item>
       </router-link>
-      
 
-      
+
+
       <el-menu-item class="banner-menu" index="disabled" disabled>
         <i class="iconfont icon-anquan"></i> 安全中心
       </el-menu-item>
@@ -105,6 +105,9 @@
       </router-link>
       <router-link to="/changepwd" tag="li">
         <el-menu-item index="2-11"><span class="iconfont icon-yuandianxiao"></span>修改密码</el-menu-item>
+      </router-link>
+      <router-link to="/changeBank" tag="li">
+        <el-menu-item index="2-15"><span class="iconfont icon-yuandianxiao"></span>修改银行卡</el-menu-item>
       </router-link>
       <el-menu-item class="book" index="2-12">
         <a style="margin-left:-40px;"  href="javascript:;" @click="tradeDialogVisible = true">{{$store.state.siteInfo.tradeAgreeTitle}}</a>
