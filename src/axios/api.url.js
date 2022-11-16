@@ -1,5 +1,5 @@
-// const url = 'https://www.lianfazj.com'
-const url = 'https://x.zxinzj.com'
+const url = 'https://www.lianfazj.com'
+// const url = 'https://x.zxinzj.com'
 // const url = 'https://k.etctradwallet.com'
 // const url = 'https://l.zxinzj.com'
 export default {

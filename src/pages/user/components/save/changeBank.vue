@@ -15,11 +15,14 @@
           </div>
           <div class="wrapper yhk-cont">
             <div class="box page-part transaction">
-
               <div class="box-contain clearfix">
                 <div class="img-cont">
                   <div class="box-img"></div>
                 </div>
+                <p v-if="!bankInfo"  style="color: #e6003e;" class="tianjia">
+                  <span class="iconfont icon-quan-cuo"></span>
+                  未添加
+                </p>
                 <div class="auth-box">
                   <el-form :hide-required-asterisk='true' :model="form" label-width="100px" ref="ruleForm" :rules="rule" class="demo-form-inline">
                     <el-form-item label="银行名称" prop="bankName">
@@ -66,7 +69,7 @@
   import HomeFooter from '../../../../components/Footer'
   import MenuBox from '../menu'
   import * as api from '../../../../axios/api'
-  import {updateBankCard} from '../../../../axios/api'
+  import {getBankCard, updateBankCard} from '../../../../axios/api'
 
   export default {
     components: {
@@ -76,20 +79,21 @@
     },
     props: {},
     data() {
-      // let validatePass = (rule, value, callback) => {
-      //   if (value === '') {
-      //     callback(new Error('请输入银行卡号'))
-      //   } else {
-      //     let myreg = /^([1-9]{1})(\d{14,18})$/ // 卡号校验
-      //     if (!myreg.test(value)) {
-      //       callback(new Error('请输入正确的银行卡号'))
-      //     }
-      //     callback()
-      //   }
-      // }
+      let validatePass = (rule, value, callback) => {
+        if (value === '') {
+          callback(new Error('请输入银行卡号'))
+        } else {
+          let myreg = /^([1-9]{1})(\d{14,18})$/ // 卡号校验
+          if (!myreg.test(value)) {
+            callback(new Error('请输入正确的银行卡号'))
+          }
+          callback()
+        }
+      }
       return {
         hasAuth: false,
         isloading: false,
+        bankInfo: null,
         form: {
           bankName: '',
           bankAddress: '',
@@ -100,7 +104,8 @@
             {
               required: true,
               message: '请输入银行卡号',
-              trigger: 'blur'
+              trigger: 'blur',
+              validator: validatePass,
             },
           ],
           bankName: [
@@ -126,6 +131,16 @@
     created() {
     },
     mounted() {
+      api.getBankCard().then(res => {
+        this.bankInfo = res.data
+        if (this.bankInfo) {
+          for (let i in this.form) {
+            if (i in this.bankInfo) {
+              this.form[i] = this.bankInfo[i]
+            }
+          }
+        }
+      })
       this.$store.state.userMenu = '2-15'
     },
     methods: {
