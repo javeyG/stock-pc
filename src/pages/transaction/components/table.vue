@@ -936,7 +936,7 @@
       },
       // 点击股票item
       async toTransaction(row, column, event) {
-
+        let {gid, stockGid, stockCode} = row
         // console.log(row, column, event)
         // let data = await api.addOption({ code: this.$route.query.code });
         // if (data.status === 0) {
@@ -944,24 +944,19 @@
         // } else {
         //   this.$message.error(data.msg);
         // }
-        let code =
-          this.activeName === "first" || this.activeName === "four" || this.activeName == 'start' || this.activeName == 'six' || this.activeName == 'serven' ?
-            row.code :
-            row.stockCode
-        if (row.stockCode != undefined && row.stockGid.indexOf("hf_") != -1) {
-          code = row.stockGid
-        } else if (
-          row.stockCode !== undefined &&
-          row.stockCode.substring(0, 3) == "000"
-        ) {
-          code = row.stockGid
+        let code = this.activeName === "first" || this.activeName === "four"
+        || this.activeName == 'start' || this.activeName == 'six' || this.activeName == 'serven' ? row.code : stockCode
+        if (stockCode != undefined && stockGid.indexOf("hf_") != -1) {
+          code = stockGid
+          stockGid = stockGid.split('hf_')[1]
         }
+        if (stockGid && stockGid.indexOf('%%') !== -1) stockGid = stockGid.split('%%')[0]
         this.$emit('changeActiveName', 'first')
         // 股票交易
         this.$router.push({
           path: "/transaction",
           query: {
-            gid: row.gid || row.stockGid,
+            gid: gid || stockGid,
             code: code,
           },
         })
