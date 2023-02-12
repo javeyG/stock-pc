@@ -1,3 +1,3 @@
 export default {
-  appcode: '51bf42cf2d834943b0b95cf37de38d82'
+  appcode: '2d2db2a57dd54c029c828afe8fb48c1c'
 }
