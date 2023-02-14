@@ -19,14 +19,14 @@ module.exports = {
           '^/': ''
         }
       },
-	  // '/': {
-	  //   target: 'http://api.fanyi.baidu.com',
-	  //   secure: false,
-	  //   changeOrigin: true,
-	  //   pathRewrite: {
-	  //     '^/': ''
-	  //   }
-	  // }
+      // '/': {
+      //   target: 'http://api.fanyi.baidu.com',
+      //   secure: false,
+      //   changeOrigin: true,
+      //   pathRewrite: {
+      //     '^/': ''
+      //   }
+      // }
     },
 
     // Various Dev Server settings
@@ -61,6 +61,9 @@ module.exports = {
   },
 
   build: {
+    devEnv: require('./dev.env'),
+    prodEnv: require('./prod.env'),
+    fantiEnv: require('./fanti.env'),
     // Template for index.html
     index: path.resolve(__dirname, '../dist/index.html'),
 

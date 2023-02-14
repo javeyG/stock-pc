@@ -31,7 +31,7 @@
 									<span style="font-size:12px;color:#B12525;" :class="detail.hcrate < 0 ?'green price':detail.hcrate > 0 ?'red price':'price'">{{detail.nowPrice}}</span>
 									<span style="font-size:12px;margin-left:10px">涨跌幅：</span>
 									<span style="font-size:12px;color:#B12525;" :class="detail.hcrate < 0 ?'green price':detail.hcrate > 0 ?'red price':'price'">{{Number(detail.hcrate).toFixed(3)}}%</span>
-									
+
 								</div>
 
 
@@ -55,13 +55,12 @@
 
 												<!-- <el-form-item label="手数" prop="buyNum" style="margin-bottom:10px;">
 													<el-input placeholder="手数" v-model="form.buyNum" class="input-with-select">
-				
+
 														<el-button slot="append">手</el-button>
 													</el-input>
 												</el-form-item> -->
 
 											</el-form-item>
-											<!--
 											<el-form-item prop="buyNum" style="margin-bottom:10px;">
 												<el-input placeholder="杠杆" v-model="form.lever" class="input-with-select">
 													<el-select v-model="form.lever" title="点击选择杠杆" slot="prepend" placeholder="请选择">
@@ -70,16 +69,15 @@
 												</el-input>
 												<span style="position: absolute;right: 10px;top: 2px; font-size: 12px;">倍</span>
 											</el-form-item>
-											-->
 										</div>
-										<p class="prompt clearfix">
-											<el-form-item label="方向" prop="buyType">
-												<el-radio-group v-model="form.buyType">
-													<el-radio label="买涨" value="0"></el-radio>
-													<el-radio label="买跌" value="1"></el-radio>
-												</el-radio-group>
-											</el-form-item>
-										</p>
+										<!--<p class="prompt clearfix">-->
+										<!--	<el-form-item label="方向" prop="buyType">-->
+										<!--		<el-radio-group v-model="form.buyType">-->
+										<!--			<el-radio label="买涨" value="0"></el-radio>-->
+										<!--			<el-radio label="买跌" value="1"></el-radio>-->
+										<!--		</el-radio-group>-->
+										<!--	</el-form-item>-->
+										<!--</p>-->
 
 										<el-row class="buy-item" v-if="!isqihuo">
 										</el-row>
@@ -130,7 +128,7 @@
 											</p>
 											</el-col>
 										</el-row>
-										
+
 										<el-row class="buy-item" style="font-size:10px;">
 											<el-checkbox class="check-box" v-model="agree" name="type" style="font-size:10px;"></el-checkbox>我同意
 											<a href="javascript:;" @click="tradeDialogVisible = true">《{{siteInfo.tradeAgreeTitle}}》</a>
@@ -195,28 +193,26 @@
 											</el-input>
 											<span style="position: absolute;right: 6px;top: 0px; font-size: 12px;">手</span>
 										</el-form-item>
-                                        <!--
 										<el-form-item prop="buyNum" style="margin-bottom:10px;position: relative;">
 											<el-input placeholder="杠杆" v-model="form.lever" class="input-with-select">
 												<el-select v-model="form.lever" title="点击选择杠杆" slot="prepend" placeholder="请选择">
 													<el-option v-for="i in siteLeverList" :key="i.value" :label="i.label" :value="i.value"></el-option>
 												</el-select>
-												 <el-button slot="append">倍</el-button> 
+												 <el-button slot="append">倍</el-button>
 											</el-input>
 											<span style="position: absolute;right: 10px;top: 2px; font-size: 12px;">倍</span>
 										</el-form-item>
-									     -->
 									</div>
-									<p class="prompt clearfix">
-										<!-- <span class="pull-left">最小购买{{Number(settingInfo.buyMinNum)/100}}手</span> -->
-										<!-- <span class="pull-right">最大可购买{{Number(settingInfo.buyMaxNum)/100}}手</span> -->
-										<el-form-item label="方向" prop="buyType">
-											<el-radio-group v-model="form.buyType">
-												<el-radio label="买涨" value="0"></el-radio>
-												<el-radio label="买跌" value="1"></el-radio>
-											</el-radio-group>
-										</el-form-item>
-									</p>
+									<!--<p class="prompt clearfix">-->
+									<!--	&lt;!&ndash; <span class="pull-left">最小购买{{Number(settingInfo.buyMinNum)/100}}手</span> &ndash;&gt;-->
+									<!--	&lt;!&ndash; <span class="pull-right">最大可购买{{Number(settingInfo.buyMaxNum)/100}}手</span> &ndash;&gt;-->
+									<!--	<el-form-item label="方向" prop="buyType">-->
+									<!--		<el-radio-group v-model="form.buyType">-->
+									<!--			<el-radio label="买涨" value="0"></el-radio>-->
+									<!--			<el-radio label="买跌" value="1"></el-radio>-->
+									<!--		</el-radio-group>-->
+									<!--	</el-form-item>-->
+									<!--</p>-->
 
 									<el-row class="buy-item" v-if="!isqihuo">
 										<!-- <el-col :span="8">{{form.buyNum * 100}}股</el-col> -->
@@ -361,7 +357,7 @@
 		data() {
 			return {
 				siteInfo:{
-					
+
 				},
 				activeName1:'first',
 				tabPosition: "left",
@@ -429,7 +425,7 @@
 				siteLeverList: [],
 				form: {
 					buyNum: "",
-					buyType: "",
+					buyType: "0",
 					lever: "",
 					subaccountNumber: "",
 				},
@@ -490,7 +486,7 @@
 					clearInterval(this.timer);
 				}
 			},
-			
+
 		},
 		computed: {
 			poundage() {
@@ -606,7 +602,7 @@
 					if (-disx >= width) {
 						disx = 10; // 如果位移超过文字宽度，则回到起点  marquee-list的margin值
 					}
-					// marquee.style.transform = 
+					// marquee.style.transform =
 					marquee.style.transform = 'translateX(' + disx + 'px)'
 				}, 30) //滚动速度
 			},
@@ -674,7 +670,7 @@
 							this.$store.commit('setUserPositionData', data.data.list[0])
 						}
 					})
-					
+
 				}else{
 					api.findUserFundsPositionByCode({
 						fundsCode:code
@@ -684,7 +680,7 @@
 						}
 					})
 				}
-				
+
 			},
 			async queryExchange() {
 				// 基币汇率
@@ -884,7 +880,6 @@
 							return
 						}
 						if (regisKong.test(this.form.buyType)) {
-
 							this.$message.error("请选择买卖方向");
 							return
 						}
@@ -896,7 +891,8 @@
 							let opts = {
 								FuturesId: this.detail.id,
 								buyNum: this.form.buyNum ? this.form.buyNum : 0,
-								buyType: this.form.buyType === "买涨" ? 0 : 1,
+								// buyType: this.form.buyType === "买涨" ? 0 : 1,
+								buyType: this.form.buyType,
 								lever: this.form.lever ? this.form.lever : 0,
 							};
 							let data = await api.buyFutures(opts);
@@ -905,8 +901,8 @@
 								// this.handleOptions3(this.buyNumber)
 								this.$message.success(data.data);
 								this.getUserInfo(); // 刷新
-								
-								
+
+
 								api.findUserFuturesPositionByCode({
 									futuresGid: qCode.code
 								}).then(data=>{
@@ -914,9 +910,9 @@
 										this.$store.commit('setUserPositionData', data.data.list[0])
 									}
 								})
-								
-								
-								
+
+
+
 							} else {
 								this.$message.error(data.msg);
 							}
@@ -929,7 +925,8 @@
 							let opts = {
 								indexId: this.detail.id,
 								buyNum: this.form.buyNum ? this.form.buyNum : 0,
-								buyType: this.form.buyType === "买涨" ? 0 : 1,
+                // buyType: this.form.buyType === "买涨" ? 0 : 1,
+                buyType: this.form.buyType,
 								lever: this.form.lever ? this.form.lever : 0,
 							};
 							this.loadingBtn = true;
@@ -939,9 +936,6 @@
 								// this.handleOptions2(this.buyNumber)
 								this.$message.success(data.data);
 								this.getUserInfo(); // 刷新
-								
-								
-								
 								api.findUserIndexPositionByCode({
 									indexGid: zCode.code
 								}).then(data=>{
@@ -950,9 +944,6 @@
 										this.$store.commit('setUserPositionData', data.data.list[0])
 									}
 								})
-								
-								
-								
 							} else {
 								this.$message.error(data.msg);
 							}
@@ -962,7 +953,8 @@
 							let opts = {
 								stockId: this.detail.id,
 								buyNum: this.form.buyNum ? this.form.buyNum * 100 : 0,
-								buyType: this.form.buyType === "买涨" ? 0 : 1,
+                // buyType: this.form.buyType === "买涨" ? 0 : 1,
+                buyType: this.form.buyType,
 								lever: this.form.lever,
 							};
 							let data = await api.buy(opts);
@@ -971,18 +963,12 @@
 								this.handleOptions2(this.buyNumber);
 								this.getUserInfo();
 								this.$message.success(data.data);
-								
-								
-								
 								var data = await api.findUserPositionByCode({
 									stockCode: gCode.code
 								})
 								if (data.status == 0) {
-								
 									this.$store.commit('setUserPositionData', data.data.list[0])
 								}
-								
-								
 							} else {
 								this.$message.error(data.msg);
 							}
@@ -1030,20 +1016,21 @@
 						let opts = {
 							stockId: this.detail.id,
 							buyNum: this.form.buyNum ? this.form.buyNum * 100 : 0,
-							buyType: this.form.buyType === "买涨" ? 0 : 1,
+							// buyType: this.form.buyType === "买涨" ? 0 : 1,
+							buyType: this.form.buyType,
 							lever: this.form.lever,
 							subaccountNumber: this.form.subaccountNumber,
 						};
-						
-						
+
+
 						let data = await api.buyFunds(opts);
 						if (data.status === 0) {
 							this.buyNumber++;
 							this.handleOptions2(this.buyNumber);
 							this.getUserInfo();
 							this.$message.success(data.data);
-							
-							
+
+
 							api.findUserFundsPositionByCode({
 								fundsCode:code
 							}).then(res=>{
@@ -1051,8 +1038,8 @@
 									this.$store.commit('setUserPositionData', data.data.list[0])
 								}
 							})
-							
-							
+
+
 						} else {
 							this.$message.error(data.msg);
 						}

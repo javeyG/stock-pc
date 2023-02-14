@@ -22,7 +22,8 @@
               <i slot="prepend" class="iconfont icon-shouji1" style="font-size:14px"></i>
             </el-input>
           </el-form-item>
-          <el-form-item label=""  prop="code" v-if="$store.state.siteInfo.smsDisplay">
+          <!--<el-form-item label=""  prop="code" v-if="$store.state.siteInfo.smsDisplay">-->
+          <el-form-item label=""  prop="code">
             <el-input type='text' class="user-phone" v-model="form.code" placeholder="验证码">
               <el-button v-if="codeshow" @click="getCode" slot="append">点击获取验证码</el-button>
               <el-button v-if="!codeshow" slot="append">{{count}}S</el-button>
@@ -39,11 +40,11 @@
               <i slot="prepend" class="iconfont icon-zu" style="font-size: 15px;"></i>
             </el-input>
           </el-form-item>
-          <el-form-item label="" prop="invitecode">
-            <el-input type='text' class="user-phone" v-model="form.invitecode" placeholder="机构代码">
-              <i slot="prepend" class="iconfont icon-tuijian"></i>
-            </el-input>
-          </el-form-item>
+          <!--<el-form-item label="" prop="invitecode">-->
+          <!--  <el-input type='text' class="user-phone" v-model="form.invitecode" placeholder="机构代码">-->
+          <!--    <i slot="prepend" class="iconfont icon-tuijian"></i>-->
+          <!--  </el-input>-->
+          <!--</el-form-item>-->
         </el-form>
         <el-row class="buy-item text-left agree-box">
           <el-checkbox class="check-box" v-model="agree" name="type"></el-checkbox>
@@ -366,17 +367,17 @@ import newFooter from '@/components/newFooter'
 /deep/ .user-phone input {
   border: none;
   margin-left: 10px;
-  
+
 }
 /deep/ .login-box .el-input-group__prepend {
   left: 12px;
 }
 .login-box .text-right[data-v-23b3be22]{
       margin: 25px 0 22px;
-      
+
 }
 .login-box .form-box[data-v-23b3be22]{
-  
+
     height: 400px;
     border-radius: 5px;
 }
@@ -393,7 +394,7 @@ import newFooter from '@/components/newFooter'
 }
 .red-bg {
   .user-phone {
-    
+
     border: 1px solid rgb(150, 150, 150);
     border-radius: 50px;
   }

@@ -40,14 +40,14 @@
 										</el-form-item>
                                         -->
 									</div>
-									<p class="prompt clearfix">
-										<el-form-item label="方向" prop="buyType">
-											<el-radio-group v-model="form.buyType">
-												<el-radio label="买涨" :disabled="true" value="0"></el-radio>
-												<el-radio label="买跌" :disabled="true" value="1"></el-radio>
-											</el-radio-group>
-										</el-form-item>
-									</p>
+									<!--<p class="prompt clearfix">-->
+									<!--	<el-form-item label="方向" prop="buyType">-->
+									<!--		<el-radio-group v-model="form.buyType">-->
+									<!--			<el-radio label="买涨" :disabled="true" value="0"></el-radio>-->
+									<!--			<el-radio label="买跌" :disabled="true" value="1"></el-radio>-->
+									<!--		</el-radio-group>-->
+									<!--	</el-form-item>-->
+									<!--</p>-->
 
 									<el-row class="buy-item" v-if="!isqihuo">
 									</el-row>
@@ -103,11 +103,11 @@
 												<i class="jibi-code">{{userPositionData.coinCode || 0}}</i></span>
 												<span class="exchange-p">≈{{(userPositionData.allProfitAndLose*userPositionData.coinRate).toFixed(2) || 0}} CNY</span>
 											</p>
-										
+
 										</p>
 										</el-col>
 									</el-row>
-									
+
 									<el-row class="buy-item" style="font-size:10px;">
 										<el-checkbox class="check-box" v-model="agree" name="type"></el-checkbox>我同意
 										<a href="javascript:;" @click="tradeDialogVisible = true">《{{siteInfo.tradeAgreeTitle || ''}}》</a>
@@ -175,14 +175,14 @@
 										</el-form-item>
 									-->
 									</div>
-									<p class="prompt clearfix">
-										<el-form-item label="方向" prop="buyType">
-											<el-radio-group v-model="form.buyType">
-												<el-radio label="买涨" :disabled="true" value="0"></el-radio>
-												<el-radio label="买跌" :disabled="true" value="1"></el-radio>
-											</el-radio-group>
-										</el-form-item>
-									</p>
+									<!--<p class="prompt clearfix">-->
+									<!--	<el-form-item label="方向" prop="buyType">-->
+									<!--		<el-radio-group v-model="form.buyType">-->
+									<!--			<el-radio label="买涨" :disabled="true" value="0"></el-radio>-->
+									<!--			<el-radio label="买跌" :disabled="true" value="1"></el-radio>-->
+									<!--		</el-radio-group>-->
+									<!--	</el-form-item>-->
+									<!--</p>-->
 
 									<el-row class="buy-item" v-if="!isqihuo">
 									</el-row>
@@ -363,7 +363,7 @@
 				siteLeverList: [],
 				form: {
 					buyNum: "",
-					buyType: "",
+					buyType: "0",
 					lever: "",
 					subaccountNumber: "",
 				},
