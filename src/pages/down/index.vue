@@ -12,7 +12,7 @@
             <div class="text">我们最大的资产是我们的员工，嘉进投资国际有限公司只聘用那些富有经验的专业人员，他们已经在金融服务业展示了他们一流的客户服务技巧和领带能力。提供专业的客户服务。我们的销售和营运代表将以专业的中文对客户的任何询问进行解答。</div>
             <div class="download">
               <div class="adr"><div class="img"><img :src="siteInfo.siteAndroidImg" alt=""></div><div class="adrtext">官方App下载（安卓）</div></div>
-              <div class="ios"><div class="img"><img :src="siteInfo.siteIosImg" alt=""></div><div class="iostext">官方App下载（安卓）</div></div>
+              <div class="ios"><div class="img"><img :src="siteInfo.siteIosImg" alt=""></div><div class="iostext">官方App下载（苹果）</div></div>
               <div class="pc"><div class="btn"><span class="iconfont icon-pc"></span>官方PC下载</div><span class="letter">扫码下载移动版 随时随地交易</span></div>
             </div>
           </div>

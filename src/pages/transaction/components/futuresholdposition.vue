@@ -21,7 +21,7 @@
           <template slot-scope="scope">
             <div class="name">
               {{scope.row.futuresName}}
-              <i v-if="scope.row.orderDirection === '买涨'" class="red iconfont icon-up"></i>
+              <i v-if="scope.row.orderDirection === $extra.mz" class="red iconfont icon-up"></i>
               <i v-if="scope.row.orderDirection  === '买跌'" class="green iconfont icon-down"></i>
               <p class="exchange-p">
                 {{scope.row.futuresCode}}

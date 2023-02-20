@@ -68,7 +68,7 @@
               <template slot-scope="scope">
                 <span>{{scope.row.stockName}}</span>
                 <p>
-                  <i v-if="scope.row.stockPlate === '科创'" class="iconfont kechuang-stock">科创</i>
+                  <i v-if="scope.row.stockPlate === $extra.kc" class="iconfont kechuang-stock">科创</i>
                   <span class="code">{{scope.row.stockCode}}</span>
                 </p>
               </template>

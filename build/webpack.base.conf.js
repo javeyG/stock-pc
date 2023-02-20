@@ -74,6 +74,10 @@ module.exports = {
           name: utils.assetsPath('fonts/[name].[hash:7].[ext]')
         }
       },
+      // {
+      //   test: /\.(js|vue)$/,
+      //   loader: 'language-tw-loader',
+      // }
       ...(process.env.env_config === 'fanti' ? [{
         test: /\.(js|vue)$/,
         loader: 'language-tw-loader',

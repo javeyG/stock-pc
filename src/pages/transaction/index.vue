@@ -165,12 +165,12 @@
 								<el-tab-pane label="入仓/出仓" name="zero">
 									<buy-box1 @selectDetailsItem="selectDetailsItem" :cutIndex="cutIndex" :detailsCont="detailsCont" :hasGetNewOrder="hasGetNewOrder" :handleOptions2="handleOptions2" :settingInfo="settingInfo" :code="code"></buy-box1>
 								</el-tab-pane>
-								<el-tab-pane label="机构持仓" name="first">
+								<el-tab-pane label="持仓" name="first">
 									<!-- 我的持仓 -->
 									<hold-position :haslogin="haslogin" :hasGetNewOrder="hasGetNewOrder" :handleOptions="handleOptions"></hold-position>
 								</el-tab-pane>
 
-								<el-tab-pane label="机构平仓" name="second">
+								<el-tab-pane label="平仓" name="second">
 									<sell-box :hasChangeSell="hasChangeSell" :handleOptions="handleOptions"></sell-box>
 								</el-tab-pane>
 

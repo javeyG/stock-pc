@@ -85,7 +85,7 @@
 										{{scope.row.name}}
 									</p>
 									<span class="code">
-										<i v-if="scope.row.stock_plate === '科创'" class="iconfont kechuang-stock">科创</i>
+										<i v-if="scope.row.stock_plate === $extra.kc" class="iconfont kechuang-stock">科创</i>
 										<i v-else-if="scope.row.stock_type === 'sh'" class="iconfont hu-stock">沪</i>
 										<i v-else-if="scope.row.stock_type === 'sz'" class="iconfont shen-stock">深</i>
 										<i v-else-if="scope.row.stock_type === 'us'" class="iconfont shen-stock">美</i>
@@ -167,7 +167,7 @@
 										{{scope.row.name}}
 									</p>
 									<span class="code">
-										<i v-if="scope.row.stock_plate === '科创'" class="iconfont kechuang-stock">科创</i>
+										<i v-if="scope.row.stock_plate === $extra.kc" class="iconfont kechuang-stock">科创</i>
 										{{scope.row.code}}
 									</span>
 								</div>
@@ -249,7 +249,7 @@
 								<div class="tab-name">
 									<p>{{scope.row.stockName}}</p>
 									<span class="code">
-										<i v-if="scope.row.stock_plate === '科创'" class="iconfont kechuang-stock">科创</i>
+										<i v-if="scope.row.stock_plate === $extra.kc" class="iconfont kechuang-stock">科创</i>
 										<i v-else-if="scope.row.stock_type === 'sh'" class="iconfont hu-stock">沪</i>
 										<i v-else-if="scope.row.stock_type === 'sz'" class="iconfont shen-stock">深</i>
 										{{scope.row.stockCode}}
@@ -367,7 +367,7 @@
 										{{scope.row.name}}
 									</p>
 									<span class="code">
-										<i v-if="scope.row.stock_plate === '创业'" class="iconfont kechuang-stock">创业</i>
+										<i v-if="scope.row.stock_plate === $extra.cy" class="iconfont kechuang-stock">创业</i>
 										{{scope.row.code}}
 									</span>
 								</div>
@@ -447,7 +447,7 @@
                     {{scope.row.name}}
                   </p>
                   <span class="code">
-										<i v-if="scope.row.stock_plate === '科创'" class="iconfont kechuang-stock">科创</i>
+										<i v-if="scope.row.stock_plate === $extra.kc" class="iconfont kechuang-stock">科创</i>
 										<i v-else-if="scope.row.stock_type === 'sh'" class="iconfont hu-stock">沪</i>
 										<i v-else-if="scope.row.stock_type === 'sz'" class="iconfont shen-stock">深</i>
 										<i v-else-if="scope.row.stock_type === 'us'" class="iconfont shen-stock">美</i>
@@ -531,7 +531,7 @@
                     {{scope.row.name}}
                   </p>
                   <span class="code">
-										<i v-if="scope.row.stock_plate === '科创'" class="iconfont kechuang-stock">科创</i>
+										<i v-if="scope.row.stock_plate === $extra.kc" class="iconfont kechuang-stock">科创</i>
 										<i v-else-if="scope.row.stock_type === 'sh'" class="iconfont hu-stock">沪</i>
 										<i v-else-if="scope.row.stock_type === 'sz'" class="iconfont shen-stock">深</i>
 										<i v-else-if="scope.row.stock_type === 'us'" class="iconfont shen-stock">美</i>
@@ -689,7 +689,7 @@
 		methods: {
 			async getlistStart() {
 				opt = {
-					stockPlate: "创业",
+					stockPlate:  this.$extra.cy,
 					keyWords: this.form.stock,
 					pageNum: this.form.pageNum,
 					pageSize: this.form.pageSize,
@@ -755,7 +755,7 @@
 				} else if (this.activeName === "four") {
 					// 科创
 					opt = {
-						stockPlate: "科创",
+						stockPlate: this.$extra.kc,
 						keyWords: this.form.stock,
 						pageNum: 1,
 						pageSize: this.form.pageSize * this.form.pageNum,
@@ -780,7 +780,7 @@
 					// 指数 期货
 				} else if (this.activeName == 'start') {
 					opt = {
-						stockPlate: "创业",
+						stockPlate:  this.$extra.cy,
 						keyWords: this.form.stock,
 						pageNum: 1,
 						pageSize: this.form.pageSize * this.form.pageNum,
@@ -859,9 +859,9 @@
 						pageSize: this.form.pageSize,
 					};
 				} else if (this.activeName === "four") {
-					// 科创板
+					// 科创板"
 					opt = {
-						stockPlate: "科创",
+						stockPlate: this.$extra.kc,
 						keyWords: this.form.stock,
 						pageNum: this.form.pageNum,
 						pageSize: this.form.pageSize,
@@ -885,7 +885,7 @@
         }
 				if (this.activeName === 'start') {
 					opt = {
-						stockPlate: "创业",
+						stockPlate:  this.$extra.cy,
 						keyWords: this.form.stock,
 						pageNum: this.form.pageNum,
 						pageSize: this.form.pageSize,
@@ -1061,14 +1061,14 @@
 						};
 					} else if (this.activeName === "four") {
 						opt = {
-							stockPlate: "科创",
+							stockPlate: this.extra.kc,
 							keyWords: this.form.stock,
 							pageNum: 1,
 							pageSize: this.form.pageSize * this.form.pageNum,
 						};
 					} else if (this.activeName === "start") {
 						opt = {
-							stockPlate: "创业",
+							stockPlate:  this.$extra.cy,
 							keyWords: this.form.stock,
 							pageNum: 1,
 							pageSize: this.form.pageSize * this.form.pageNum,

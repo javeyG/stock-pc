@@ -291,9 +291,9 @@
       },
       switchLang(language) {
         if (language === 'zh-CN') {
-          location.href = "/homes1/#" + this.$route.path
+          location.href = "/homes/#" + this.$route.path
         } else {
-          location.href = "/homes1_ft/#" + this.$route.path
+          location.href = "/homes_ft/#" + this.$route.path
         }
       },
       async getInfoSite() {

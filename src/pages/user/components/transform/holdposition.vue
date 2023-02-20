@@ -67,7 +67,7 @@
               <template slot-scope="scope">
                 <span>{{scope.row.stockName}}</span>
                 <p>
-                  <i v-if="scope.row.stockPlate === '科创'" class="iconfont kechuang-stock">科创</i>
+                  <i v-if="scope.row.stockPlate === $extra.kc" class="iconfont kechuang-stock">科创</i>
                   <span class="code">{{scope.row.stockCode}}</span>
                 </p>
               </template>
@@ -105,10 +105,10 @@
               prop="orderDirection"
               label="方向">
               <template slot-scope="scope">
-                        <span :class="scope.row.orderDirection === '买涨' ? 'red':'green'">
+                        <span :class="scope.row.orderDirection === $extra.mz ? 'red':'green'">
                             {{scope.row.orderDirection}}
-                            <i v-if="scope.row.orderDirection === '买涨'" class="iconfont icon-up"></i>
-                            <i v-if="scope.row.orderDirection === '买跌'" class="iconfont icon-down"></i>
+                            <i v-if="scope.row.orderDirection === $extra.mz" class="iconfont icon-up"></i>
+                            <i v-if="scope.row.orderDirection === $extra.md" class="iconfont icon-down"></i>
                         </span>
               </template>
             </el-table-column>

@@ -241,7 +241,7 @@ import newFooter from '@/components/newFooter'
         if (result.status === 0) {
           this.siteInfo = result.data
           if(this.siteInfo.smsDisplay === false){
-              this.form.code = '6666'
+              // this.form.code = '6666'
           }
           this.regAgreeText = this.siteInfo.regAgreeText
           this.tradeAgreeText = this.siteInfo.tradeAgreeText

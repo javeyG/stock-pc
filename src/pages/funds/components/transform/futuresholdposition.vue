@@ -18,7 +18,7 @@
               <template slot-scope="props">
 
                 <el-form label-position="left" inline class="demo-table-expand">
-                  <div class="expand-row" v-if="props.row.orderDirection === '买涨'">
+                  <div class="expand-row" v-if="props.row.orderDirection === $extra.mz">
                     浮动盈亏：( {{props.row.nowPrice}} - {{props.row.buyOrderPrice}} ) * {{props.row.orderNum}} *
                     {{props.row.eachPoint}} = {{((props.row.nowPrice -
                     props.row.buyOrderPrice)*props.row.orderNum*props.row.eachPoint).toFixed(2)}}{{props.row.coinCode}}
@@ -110,10 +110,10 @@
               prop="orderDirection"
               label="方向">
               <template slot-scope="scope">
-                        <span :class="scope.row.orderDirection === '买涨' ? 'red':'green'">
+                        <span :class="scope.row.orderDirection === $extra.mz ? 'red':'green'">
                             {{scope.row.orderDirection}}
-                            <i v-if="scope.row.orderDirection === '买涨'" class="iconfont icon-up"></i>
-                            <i v-if="scope.row.orderDirection === '买跌'" class="iconfont icon-down"></i>
+                            <i v-if="scope.row.orderDirection === $extra.mz" class="iconfont icon-up"></i>
+                            <i v-if="scope.row.orderDirection === $extra.md" class="iconfont icon-down"></i>
                         </span>
               </template>
             </el-table-column>
