@@ -6,6 +6,8 @@
 		<el-container class="main-wrapper">
 			<el-main class="transform-main " style="overflow: hidden;">
 				<div style="margin-bottom: 2px;display: flex;background-color: #000;justify-content: space-between;">
+
+
 					<div class="tab-bg" style="display: flex;justify-content: space-between; height: 40px;">
 						<div style="display: flex;justify-content: space-between;">
 							<!-- 登录后行情 -->
@@ -150,7 +152,7 @@
 						 :handleOptions3="handleOptions3" :handleOptions4="handleOptions4"></table-box>
 					</el-col>
 					<el-col class="alterWidthCenter" :span="14" v-if="cutIndex == 1">
-					    <chart-box :key="timer" v-if="isShow" :detail="detail" :code="code"></chart-box>
+					    <chart-box :detail="detail" :code="code"></chart-box>
 						<!--
 						<chart-box v-if="isChartOld" :detail="detail" :code="code"></chart-box>
 						<chart-new v-if="!isChartOld" :detail="detail" :code="code" :ucode="ucode"></chart-new>
@@ -372,18 +374,10 @@
 						name: "科创",
 						type: "four"
 					},
-					// {
-					// 	name: "期货",
-					// 	type: "five"
-					// },
-          {
-            name: "美股",
-            type: "six",
-          },
-          {
-            name: "港股",
-            type: "serven",
-          },
+					{
+						name: "期货",
+						type: "five"
+					},
 					{
 						name: "创业版",
 						type: "start"
@@ -419,7 +413,6 @@
 				ucode: "",
 				activeName: "zero",
 				haslogin: false,
-        isShow: true,
 				detail: {},
 				hasChangeSell: 0, // 是否平仓 (融资) 平仓之后数字一直加
 				hasChangeSell2: 0, // 是否平仓 (指数) 平仓之后数字一直加
@@ -439,9 +432,6 @@
 		watch: {
 			change(newVal, oldVal) {
 				if (newVal !== oldVal) {
-          this.isShow = false;
-          this.timer = new Date().getTime();
-          this.isShow = true;
 					this.getDetail(); // 分时数据
 				}
 			},
@@ -456,7 +446,6 @@
 			if (!to.query.code) {
 				let query = to.query;
 				query.code = "300498";
-				query.gid = "sz300498";
 				next({
 					path: to.path,
 					query: query,
@@ -469,7 +458,6 @@
 			if (!to.query.code) {
 				let query = to.query;
 				query.code = "300498";
-				query.gid = "sz300498";
 				next({
 					path: to.path,
 					query: query,
