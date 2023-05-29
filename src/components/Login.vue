@@ -11,7 +11,7 @@
         </h2> -->
         <el-form :hide-required-asterisk='true' :model="form" ref="ruleForm" :rules="rule" class="demo-form-inline">
           <el-form-item label="" prop="phone">
-            <el-input maxlength="11" max="11" type='text' v-model="form.phone" placeholder="请输入手机号码">
+            <el-input  type='text' v-model="form.phone" placeholder="请输入手机号码">
               <i slot="prepend" class="iconfont icon-shouji"></i>
             </el-input>
           </el-form-item>
@@ -74,7 +74,10 @@
         },
         rule: {
           phone: [
-            { required: true, validator: validatePass, message: '请输入手机号码', trigger: 'blur' }
+            { required: true,
+              // validator: validatePass,
+              message: '请输入手机号码',
+              trigger: 'blur' }
           ],
           pwd: [
             { required: true, message: '请输入密码', trigger: 'blur' }

@@ -7,7 +7,7 @@
 	  <el-header>
 		  <home-header></home-header>
 	  </el-header>
-      
+
     </div>
     <div class="loginbg-box">
       <!-- <img class="login-img" src="../../assets/image/login.jpeg" alt=""> -->
@@ -28,8 +28,6 @@
         >
           <el-form-item label prop="phone">
             <el-input
-              maxlength="11"
-              max="11"
               type="text"
               class="user-phone"
               v-model="form.phone"
@@ -118,7 +116,7 @@ export default {
         phone: [
           {
             required: true,
-            validator: validatePass,
+            // validator: validatePass,
             message: "请输入手机号码",
             trigger: "blur",
           },
@@ -216,7 +214,7 @@ export default {
       margin: 25px 0 22px;
 }
 .login-box .form-box[data-v-23b3be22]{
-  
+
     height: 400px;
     border-radius: 5px;
 }

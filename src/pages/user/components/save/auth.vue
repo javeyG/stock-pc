@@ -316,7 +316,7 @@ export default {
         idCard: [
           {
             required: true,
-            validator: validatePass,
+            // validator: validatePass,
             message: "请输入身份证",
             trigger: "blur",
           },

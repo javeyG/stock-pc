@@ -113,11 +113,11 @@
               </div>
 
             </div>
-            
+
           </div>
-        
+
         </div>
-      
+
           -->
 
           <div class="chongzhi-bizhi">
@@ -185,7 +185,7 @@ export default {
         bankNo: [
           {
             required: true,
-            validator: validatePass,
+            // validator: validatePass,
             message: "请输入银行卡号",
             trigger: "blur",
           },
@@ -278,7 +278,7 @@ export default {
 	  }
 	}
   .yanzeng-cont {
-	  
+
 	display: flex;
     .tongguo,
     .renzheng {

@@ -24,7 +24,8 @@ import IndexSellOrder from '../pages/user/components/transform/indexsellorder' /
 import FuturesSellOrder from '../pages/user/components/transform/futuressellorder' // 平仓单 指数
 import Bank from '../pages/user/components/save/bank' // 银行卡
 import Auth from '../pages/user/components/save/auth' // 实名认证
-import ChangePwd from '../pages/user/components/save/changepwd' // 修改银行卡
+import ChangePwd from '../pages/user/components/save/changepwd' // 修改银行卡密码
+import ChangeBank from '../pages/user/components/save/changebank' // 修改银行卡
 import Login from '../pages/login/login' // 登录
 import Register from '../pages/login/register' // 注册
 import Forget from '../pages/login/forget' // 忘记密码
@@ -199,6 +200,11 @@ export default new Router({
       name: 'changepwd',
       meta: { title: '修改密码' },
       component: ChangePwd
+    }, {
+      path: '/changebank',
+      name: 'changebank',
+      meta: { title: '修改银行卡' },
+      component: ChangeBank
     },
     {
       path: '/login',
@@ -270,6 +276,6 @@ export default new Router({
       meta: { title: '企业公告详情' },
       component: enterpriseDetails
     }
-    
+
   ]
 })
