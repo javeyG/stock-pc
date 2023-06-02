@@ -31,7 +31,7 @@
                     </el-form-item>
                     <el-form-item label="开户支行" prop="bankAddress">
                       <el-input type='text' class="chongzhi-input" v-model="form.bankAddress" placeholder="需要精确到分行或者支行">
-                      </el-input>
+                      </el-input>美股
                     </el-form-item>
                     <el-form-item label="银行卡号" prop="bankNo">
                       <el-input type='text' class="chongzhi-input" v-model="form.bankNo" placeholder="请输入银行卡号">
