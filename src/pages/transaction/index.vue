@@ -60,8 +60,6 @@
 						</div>
 					</div>
 				</div>
-
-
 				<el-row  :gutter="3">
 					<el-col class="hei"  :span="4" v-if="cutIndex == 2">
 						<div :style="'height:'+windowHeight+'px'"  class="listhi-cont" style="margin-bottom: 2px; width: 100%;height: 800px;  padding: 20px 0 0 0;overflow: hidden auto;">
