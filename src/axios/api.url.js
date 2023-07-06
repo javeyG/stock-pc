@@ -4,7 +4,8 @@
 // const url = 'https://zygjjs.com'
 // const url = 'https://y.zxinzj.com'
 // const url = 'https://j.jxziben.net'
-const url = 'http://115.126.57.88'
+// const url = 'http://115.126.57.88'
+const url = 'https://j.jxinziben.com'
 export default {
   DOMAIN: url,
   // baseURL: 'http://www.shehua56.com',

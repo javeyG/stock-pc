@@ -19,9 +19,11 @@ import ChangeCash from '../pages/user/components/change' // 资产互转
 import HoldPosition from '../pages/user/components/transform/holdposition' // 持仓单
 import IndexHoldPosition from '../pages/user/components/transform/indexholdposition' // 持仓单 指数
 import FuturesHoldPosition from '../pages/user/components/transform/futuresholdposition' // 持仓单 指数
+import BjHoldPosition from '../pages/user/components/transform/bjholdposition' // 持仓单 北证
 import SellOrder from '../pages/user/components/transform/sellorder' // 平仓单
 import IndexSellOrder from '../pages/user/components/transform/indexsellorder' // 平仓单 指数
 import FuturesSellOrder from '../pages/user/components/transform/futuressellorder' // 平仓单 指数
+import Bjsellorder from '../pages/user/components/transform/bjsellorder' // 平仓 北证
 import Bank from '../pages/user/components/save/bank' // 银行卡
 import Auth from '../pages/user/components/save/auth' // 实名认证
 import ChangePwd from '../pages/user/components/save/changepwd' // 修改银行卡密码
@@ -185,6 +187,16 @@ export default new Router({
       name: 'indexsell',
       meta: { title: '指数平仓单' },
       component: IndexSellOrder
+    },{
+      path: '/bjsell',
+      name: 'bjsell',
+      meta: { title: '北证平仓' },
+      component: Bjsellorder
+    }, {
+      path: '/bjholdposition',
+      name: 'bjholdposition',
+      meta: { title: '北证持仓' },
+      component: BjHoldPosition
     }, {
       path: '/bank',
       name: 'bank',

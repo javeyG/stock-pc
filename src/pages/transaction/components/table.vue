@@ -74,7 +74,6 @@
             </el-row>
           </div>
           <el-table stripe v-loading="loading" :data="list.list" @row-click="toTransaction" :height="windowHeight" style="width: 100%">
-
             <el-table-column prop="name" label="名称">
               <template slot-scope="scope">
                 <div class="tab-name">
@@ -591,6 +590,80 @@
           </div>
         </div>
       </el-tab-pane>
+      <!-- label="北证" -->
+      <el-tab-pane name="eight">
+        <div class="table transaction-table">
+          <el-table stripe v-loading="loading" :data="list.list" @row-click="toTransaction" :height="windowHeight" style="width: 100%">
+            <el-table-column prop="name" label="名称">
+              <template slot-scope="scope">
+                <div class="tab-name">
+
+                  <p style="display: flex; width: 100px;">
+                    <a v-if="scope.row.isOption == 0" href="javascript:;" @click="tianjiaOptions(scope.row)"><i class="red-xx iconfont icon-wujiaoxing"></i></a>
+                    <a v-if="scope.row.isOption == 1" href="javascript:;" @click="quxiaoOptions(scope.row)"><i class="red-xx iconfont icon-wujiaoxing1"></i></a>
+                    {{ scope.row.name }}
+                  </p>
+                  <span class="code">
+										<i v-if="scope.row.stock_plate === '科创'" class="iconfont kechuang-stock">科创</i>
+										<i v-else-if="scope.row.stock_type === 'sh'" class="iconfont hu-stock">沪</i>
+										<i v-else-if="scope.row.stock_type === 'sz'" class="iconfont shen-stock">深</i>
+										<i v-else-if="scope.row.stock_type === 'us'" class="iconfont shen-stock">美</i>
+										<i v-else-if="scope.row.stock_type === 'uk'" class="iconfont shen-stock">港</i>
+										{{ scope.row.code }}
+									</span>
+                </div>
+              </template>
+            </el-table-column>
+            <el-table-column prop="nowPrice" align="right" label="现价">
+              <template slot-scope="scope">
+                <div class="price">
+                  <div :class="scope.row.hcrate<0?'green':scope.row.hcrate==0?'':'red'">
+                    <span v-if="scope.row.nowPrice === 0">-</span>
+                    <span v-else>
+											{{ Number(scope.row.nowPrice).toFixed(2) }}
+											<i v-if="scope.row.hcrate>0" class="iconfont icon-direction-top"></i>
+											<i v-if="scope.row.hcrate<0" class="iconfont icon-down"></i>
+										</span>
+                  </div>
+                </div>
+                <!-- <div v-if="scope.row.now_price" :class="changeTextClass[scope.$index] === true?'heartBeat  tab-number':' tab-number'">
+                  <p :class="scope.row.now_price - scope.row.buyOrderPrice < 0?'green bounceIn':scope.row.now_price - scope.row.buyOrderPrice > 0?'bounceIn red':'bounceIn'">
+                    {{scope.row.now_price === 0?'-':scope.row.now_price}}
+                  </p>
+                </div>-->
+              </template>
+            </el-table-column>
+            <el-table-column prop="hcrate" align="right" label="涨跌幅">
+              <template slot-scope="scope">
+                <div class="price">
+                  <div :class="scope.row.hcrate<0?'green':scope.row.hcrate==0?'':'red'">
+                    <span v-if="scope.row.nowPrice === 0">-</span>
+                    <span v-else>{{ Number(scope.row.hcrate).toFixed(2) }}%</span>
+                    <!-- <i v-if="scope.row.hcrate>0" class="iconfont icon-up"></i>
+                    <i v-if="scope.row.hcrate<0" class="iconfont icon-down"></i>-->
+                  </div>
+                </div>
+              </template>
+            </el-table-column>
+          </el-table>
+          <div class="page-box text-center">
+            <a @click="toStock" class="more-btn" href="javascript:;">
+              点击加载更多内容
+              <i class="iconfont icon-xiasanjiao"></i>
+            </a>
+            <!-- <el-pagination
+            class="pull-right"
+                @size-change="handleSizeChange"
+                @current-change="handleCurrentChange"
+                :current-page="list.pageNum"
+                :page-sizes="[10, 20, 30, 40,50]"
+                :page-size="list.pageSize"
+                layout="total, sizes, prev, pager, next, jumper"
+                :total="list.total">
+            </el-pagination>-->
+          </div>
+        </div>
+      </el-tab-pane>
     </el-tabs>
     <BuyIndex :handleOptions2="handleOptions2" :indexInfo="indexInfo" ref="buyDialog"/>
     <BuyFutures :handleOptions3="handleOptions3" :futuresInfo="futuresInfo" ref="futuresDialog"/>
@@ -781,6 +854,14 @@
           }
         } else if (this.activeName === "three" || this.activeName === "five") {
           // 指数 期货
+        } else if (this.activeName === "eight") {
+          // 北证
+          opt = {
+            stockPlate: "北证",
+            keyWords: this.form.stock,
+            pageNum: 1,
+            pageSize: this.form.pageSize * this.form.pageNum,
+          }
         } else if (this.activeName == 'start') {
           opt = {
             stockPlate: "创业",
@@ -797,7 +878,7 @@
           }
         }
         let data = null
-        if (this.activeName === "first" || this.activeName === "four" || this.activeName == 'start' || this.activeName === "six" || this.activeName == 'serven') {
+        if (this.activeName === "first" || this.activeName === "four" || this.activeName === 'start' || this.activeName === "six" || this.activeName === 'serven' || this.activeName === 'eight') {
           data = await api.getStock(opt)
         } else if (this.activeName === "three") {
           data = await api.getListMarket(opt)
@@ -894,6 +975,13 @@
             pageNum: this.form.pageNum,
             pageSize: this.form.pageSize,
           }
+        } else if (this.activeName === 'eight') {
+          opt = {
+            stockPlate: "北证",
+            keyWords: this.form.stock,
+            pageNum: this.form.pageNum,
+            pageSize: this.form.pageSize,
+          }
         } else {
           // 自选
           opt = {
@@ -904,7 +992,7 @@
         }
         this.loading = true
         let data = null
-        if (this.activeName === "first" || this.activeName === "four" || this.activeName === "six" || this.activeName === "serven") {
+        if (this.activeName === "first" || this.activeName === "four" || this.activeName === "six" || this.activeName === "serven" || this.activeName === 'eight') {
           console.log('opt', opt)
           data = await api.getStock(opt)
         } else if (this.activeName === 'start') {
@@ -945,7 +1033,7 @@
         //   this.$message.error(data.msg);
         // }
         let code = this.activeName === "first" || this.activeName === "four"
-        || this.activeName == 'start' || this.activeName == 'six' || this.activeName == 'serven' ? row.code : stockCode
+        || this.activeName == 'start' || this.activeName == 'six' || this.activeName == 'serven' || this.activeName == 'eight' ? row.code : stockCode
         if (stockCode != undefined && stockGid.indexOf("hf_") != -1) {
           code = stockGid
           stockGid = stockGid.split('hf_')[1]
@@ -1088,6 +1176,13 @@
               pageNum: 1,
               pageSize: this.form.pageSize * this.form.pageNum,
             }
+          } else if (this.activeName === "eight") {
+            opt = {
+              stockPlate: "北证",
+              keyWords: this.form.stock,
+              pageNum: 1,
+              pageSize: this.form.pageSize * this.form.pageNum,
+            }
           } else {
             // 自选
             opt = {
@@ -1102,7 +1197,7 @@
           //     pageSize:this.form.pageSize * this.form.pageNum
           // }
           let data = null
-          if (this.activeName === "first" || this.activeName === "four" || this.activeName === "six" || this.activeName === "serven") {
+          if (this.activeName === "first" || this.activeName === "four" || this.activeName === "six" || this.activeName === "serven" || this.activeName === "eight") {
             data = await api.getStock(opt)
           } else if (this.activeName == 'start') {
             data = await api.getStock(opt)

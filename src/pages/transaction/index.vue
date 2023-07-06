@@ -383,18 +383,22 @@
 						name: "期货",
 						type: "five"
 					},
-          // {
-          //   name: "美股",
-          //   type: "six",
-          // },
-          // {
-          //   name: "港股",
-          //   type: "serven",
-          // },
+          {
+            name: "美股",
+            type: "six",
+          },
+          {
+            name: "港股",
+            type: "serven",
+          },
 					{
 						name: "创业版",
 						type: "start"
 					},
+          {
+            name: "北证",
+            type: "eight"
+          },
 				],
 				// 行情登录
 				market: [{

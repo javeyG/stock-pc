@@ -188,6 +188,72 @@
 							</el-row>
 						</el-col>
 					</el-collapse-item>
+          <el-collapse-item title="港股账户" name="4">
+            <el-col :span="24">
+              <el-row class="Assets-box" :gutter="20">
+                <el-col :span="6">
+                  <div class="box box1">
+                    <i class="color3 iconfont icon-zijin1"></i>
+                    <p class="title">港股总资金:</p>
+                    <p :class="refresh?'number heartBeat':'number'">
+                      ￥{{$store.state.hide?'****':$store.state.userInfo.hkAmt}}</p>
+                  </div>
+                </el-col>
+                <el-col :span="6">
+                  <div class="box box1">
+                    <i class="color2 iconfont icon-keyongzijin"></i>
+                    <p class="title">港股可用资金:</p>
+                    <p class="number">￥{{$store.state.hide?'****':$store.state.userInfo.hkEnableAmt}}
+                    </p>
+                  </div>
+                </el-col>
+              </el-row>
+            </el-col>
+          </el-collapse-item>
+          <el-collapse-item title="美股账户" name="5">
+            <el-col :span="24">
+              <el-row class="Assets-box" :gutter="20">
+                <el-col :span="6">
+                  <div class="box box1">
+                    <i class="color3 iconfont icon-zijin1"></i>
+                    <p class="title">美股总资金:</p>
+                    <p :class="refresh?'number heartBeat':'number'">
+                      ￥{{$store.state.hide?'****':$store.state.userInfo.usAmt}}</p>
+                  </div>
+                </el-col>
+                <el-col :span="6">
+                  <div class="box box1">
+                    <i class="color2 iconfont icon-keyongzijin"></i>
+                    <p class="title">美股可用资金:</p>
+                    <p class="number">￥{{$store.state.hide?'****':$store.state.userInfo.usEnableAmt}}
+                    </p>
+                  </div>
+                </el-col>
+              </el-row>
+            </el-col>
+          </el-collapse-item>
+          <el-collapse-item title="北证账户" name="6">
+            <el-col :span="24">
+              <el-row class="Assets-box" :gutter="20">
+                <el-col :span="6">
+                  <div class="box box1">
+                    <i class="color3 iconfont icon-zijin1"></i>
+                    <p class="title">北证总资金:</p>
+                    <p :class="refresh?'number heartBeat':'number'">
+                      ￥{{$store.state.hide?'****':$store.state.userInfo.bjAmt}}</p>
+                  </div>
+                </el-col>
+                <el-col :span="6">
+                  <div class="box box1">
+                    <i class="color2 iconfont icon-keyongzijin"></i>
+                    <p class="title">北证可用资金:</p>
+                    <p class="number">￥{{$store.state.hide?'****':$store.state.userInfo.bjEnableAmt}}
+                    </p>
+                  </div>
+                </el-col>
+              </el-row>
+            </el-col>
+          </el-collapse-item>
 				</el-collapse>
 			</el-row>
 			<el-row v-if="false">

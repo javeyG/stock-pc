@@ -66,8 +66,12 @@
       <router-link v-if="$store.state.productSetting.futuresDisplay" to="/futuressell" tag="li">
         <el-menu-item index="futuressell"><span class="iconfont icon-yuandianxiao"></span>期货平仓</el-menu-item>
       </router-link>
-
-
+      <router-link to="/bjholdposition" tag="li">
+        <el-menu-item index="bjhold"><span class="iconfont icon-yuandianxiao"></span>北证持仓</el-menu-item>
+      </router-link>
+      <router-link to="/bjsell" tag="li">
+        <el-menu-item index="bjsell"><span class="iconfont icon-yuandianxiao"></span>北证平仓</el-menu-item>
+      </router-link>
       <el-menu-item class="banner-menu" index="disabled" disabled>
         <i class="iconfont icon-zichanshuoming"></i>
         资产管理
