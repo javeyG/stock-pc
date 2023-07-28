@@ -174,11 +174,9 @@
 									<!-- 我的持仓 -->
 									<hold-position :haslogin="haslogin" :hasGetNewOrder="hasGetNewOrder" :handleOptions="handleOptions"></hold-position>
 								</el-tab-pane>
-
 								<el-tab-pane label="机构平仓" name="second">
 									<sell-box :hasChangeSell="hasChangeSell" :handleOptions="handleOptions"></sell-box>
 								</el-tab-pane>
-
 								<el-tab-pane label="指数持仓" v-if="$store.state.productSetting.indexDisplay" name="three">
 									<!-- 我的持仓 指数 -->
 									<index-hold-position :haslogin="haslogin" :hasGetNewOrder="hasGetNewOrder2" :handleOptions="handleOptionsindex"></index-hold-position>
@@ -193,7 +191,6 @@
 								<el-tab-pane label="期货平仓" v-if="$store.state.productSetting.futuresDisplay" name="six">
 									<futures-sell-box :hasChangeSell="hasChangeSell3" :handleOptions="handleOptionsFutures"></futures-sell-box>
 								</el-tab-pane>
-
 								<el-tab-pane label="配资持仓" name="seven" v-if="$store.state.productSetting.fundsDisplay">
 									<!-- 配资持仓 -->
 									<funds-hold-position :haslogin="haslogin" :hasGetNewOrder="hasChangeSell4" :handleOptions="handleOptionsFunds"></funds-hold-position>
@@ -201,6 +198,24 @@
 								<el-tab-pane label="配资平仓" name="eight" v-if="$store.state.productSetting.fundsDisplay">
 									<funds-sell-box :hasChangeSell="hasChangeSell4" :handleOptions="handleOptionsFunds"></funds-sell-box>
 								</el-tab-pane>
+                <el-tab-pane label="港股持仓" name="nine">
+                  <hk-hold-position :haslogin="haslogin" :hasGetNewOrder="hasGetNewOrder5" :handleOptions="handleOptionsHk"></hk-hold-position>
+                </el-tab-pane>
+                <el-tab-pane label="港股平仓" name="ten">
+                  <hk-sell-box :hasChangeSell="hasChangeSell5" :handleOptions="handleOptions5"></hk-sell-box>
+                </el-tab-pane>
+                <el-tab-pane label="美股持仓" name="eleven">
+                  <us-hold-position :haslogin="haslogin" :hasGetNewOrder="hasGetNewOrder6" :handleOptions="handleOptionsUs"></us-hold-position>
+                </el-tab-pane>
+                <el-tab-pane label="美股平仓" name="twelve">
+                  <us-sell-box :hasChangeSell="hasChangeSell6" :handleOptions="handleOptions6"></us-sell-box>
+                </el-tab-pane>
+                <el-tab-pane label="北证持仓" name="thirteen">
+                  <bj-hold-position :haslogin="haslogin" :hasGetNewOrder="hasGetNewOrder7" :handleOptions="handleOptionsBj"></bj-hold-position>
+                </el-tab-pane>
+                <el-tab-pane label="北证平仓" name="fourteen">
+                  <bj-sell-box :hasChangeSell="hasChangeSell7" :handleOptions="handleOptions7"></bj-sell-box>
+                </el-tab-pane>
 							</el-tabs>
 							<div v-if="false" class="account-state">
 								<span :class="$store.state.userInfo.allProfitAndLose>0?'red':$store.state.userInfo.allProfitAndLose<0?'green':''">持仓总盈亏：{{$store.state.userInfo.allProfitAndLose}}</span>
@@ -278,10 +293,16 @@
 	import IndexHoldPosition from "./components/indexholdposition";
 	import FuturesHoldPosition from "./components/futuresholdposition";
 	import FundsHoldPosition from "./components/fundsholdposition";
+	import HkHoldPosition from "./components/hkholdposition";
+  import UsHoldPosition from "./components/usholdposition";
+  import BjHoldPosition from "./components/bjholdposition";
 	import SellBox from "./components/sell";
 	import IndexSellBox from "./components/indexsell";
 	import FuturesSellBox from "./components/futuressell";
 	import FundsSellBox from "./components/fundssell";
+	import HkSellBox from "./components/hksell";
+	import UsSellBox from "./components/ussell";
+	import BjSellBox from "./components/bjsell";
 	import BuyBox from "./components/buy";
 	import BuyBox1 from "./components/buy1";
 
@@ -300,12 +321,18 @@
 			HoldPosition,
 			BuyBox,
 			IndexHoldPosition,
+      HkHoldPosition,
+      UsHoldPosition,
+      BjHoldPosition,
 			IndexSellBox,
 			SellBox,
 			FuturesHoldPosition,
 			FundsHoldPosition,
 			FuturesSellBox,
 			FundsSellBox,
+      HkSellBox,
+      UsSellBox,
+      BjSellBox,
 			BuyBox1,
 		},
 		props: {},
@@ -437,10 +464,16 @@
 				hasChangeSell2: 0, // 是否平仓 (指数) 平仓之后数字一直加
 				hasChangeSell3: 0, // 是否平仓 (期货) 平仓之后数字一直加
 				hasChangeSell4: 0, // 是否平仓 (配资) 平仓之后数字一直加
+				hasChangeSell5: 0, // 是否平仓 (配资) 平仓之后数字一直加
+				hasChangeSell6: 0, // 是否平仓 (配资) 平仓之后数字一直加
+				hasChangeSell7: 0, // 是否平仓 (配资) 平仓之后数字一直加
 				hasGetNewOrder: 0, // 是否下单(融资)  下单数字++ 使用true/false 第二次为true的时候 页面监听不到
 				hasGetNewOrder2: 0, // 是否下单(指数)
 				hasGetNewOrder3: 0, // 是否下单(期货)
 				hasGetNewOrder4: 0, // 是否下单(配资)
+				hasGetNewOrder5: 0, // 是否下单(配资)
+				hasGetNewOrder6: 0, // 是否下单(配资)
+				hasGetNewOrder7: 0, // 是否下单(配资)
 				settingInfo: {},
 				isChartOld: false,
 				windowWidth: document.documentElement.clientWidth, //实时屏幕宽度
@@ -790,7 +823,6 @@
 					this.transactionNewList = data.data.list;
 				}
 			},
-
 			handleOptions(opts) {
 				// 监听平仓状态 融资
 				this.hasChangeSell = opts;
@@ -819,6 +851,27 @@
 					this.activeName = "eight";
 				}
 			},
+      handleOptionsHk(opts) {
+        // 监听平仓状态 港股
+        this.hasChangeSell5 = opts;
+        if (this.hasChangeSell5) {
+          this.activeName = "nine";
+        }
+      },
+      handleOptionsUs(opts) {
+        // 监听平仓状态 美股
+        this.hasChangeSell5 = opts;
+        if (this.hasChangeSell6) {
+          this.activeName = "eleven";
+        }
+      },
+      handleOptionsBj(opts) {
+        // 监听平仓状态 北证
+        this.hasChangeSell5 = opts;
+        if (this.hasChangeSell7) {
+          this.activeName = "thirteen";
+        }
+      },
 			handleOptions2(opts) {
 				// 监听指数下单状态
 				this.hasGetNewOrder = opts;
@@ -847,6 +900,27 @@
 					this.activeName = "three";
 				}
 			},
+      handleOptions5(opts) {
+        // 监听港股下单状态
+        this.hasGetNewOrder5 = opts;
+        if (this.hasGetNewOrder5) {
+          this.activeName = "ten";
+        }
+      },
+      handleOptions6(opts) {
+        // 监听美股下单状态
+        this.hasGetNewOrder6 = opts;
+        if (this.hasGetNewOrder6) {
+          this.activeName = "twelve";
+        }
+      },
+      handleOptions7(opts) {
+        // 监听北证下单状态
+        this.hasGetNewOrder7 = opts;
+        if (this.hasGetNewOrder7) {
+          this.activeName = "fourteen";
+        }
+      },
 			async getDetail() {
 				if (this.$route.query.code.indexOf("hf_") != -1) {
 					this.isChartOld = true;

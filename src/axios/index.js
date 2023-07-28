@@ -73,6 +73,19 @@ export function post (url, data = {}) {
   })
 }
 
+export function post1 (url, data = {}) {
+  return new Promise((resolve, reject) => {
+    axios.post(url, data,{
+      'Content-Type': 'application/json;charset=UTF-8'
+    })
+      .then(response => {
+        resolve(response.data)
+      }, err => {
+        reject(err)
+      })
+  })
+}
+
 /**
  * get 方法封装
  * @param url

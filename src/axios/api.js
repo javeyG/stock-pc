@@ -1,4 +1,4 @@
-import { post, get } from './index'
+import { post, post1,get } from './index'
 // import APIUrl from './api.url'
 
 // var img_url = APIUrl.util.image // 这个就是图片上传的api url
@@ -490,4 +490,34 @@ export function findUserFuturesPositionByCode(options) {
 // 股票-分仓交易-查询最早入仓的一条数据
 export function findUserFundsPositionByCode(options) {
   return get('user/funds/findUserFundsPositionByCode.do', options)
+}
+
+// 获取大宗交易列表
+export function getStockDz (options) {
+  return post1('/api/stockDz/apiPage.do', options)
+}
+
+// 购买大宗交易
+export function buyStockDz (options) {
+  return post1('/api/stockDz/buy.do', options)
+}
+
+// 获取大宗交易记录
+export function getStockDzRecord (options) {
+  return get('/user/funds/sellFunds.do', options)
+}
+
+// 新股列表
+export function getStockXg (options) {
+  return post1('/api/stockSubscribe/apiPage.do', options)
+}
+
+// 新股抢筹记录列表
+export function getStockXgqc (options) {
+  return post1('/api/userStockSubscribeNew/apiPage.do', options)
+}
+
+// 购买新股抢筹
+export function buyStockXgqc (options) {
+  return post1('/api/userStockSubscribeNew/buy.do', options)
 }

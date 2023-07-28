@@ -21,6 +21,12 @@
        <router-link to="/xingu" tag="li">
         <el-menu-item index="2-14"><span class="iconfont icon-yuandianxiao"></span>新股申购</el-menu-item>
       </router-link>
+      <router-link to="/dazhong" tag="li">
+        <el-menu-item index="2-15"><span class="iconfont icon-yuandianxiao"></span>大宗交易</el-menu-item>
+      </router-link>
+      <router-link to="/xingu-pc" tag="li">
+        <el-menu-item index="2-16"><span class="iconfont icon-yuandianxiao"></span>新股配筹</el-menu-item>
+      </router-link>
 
 	<!-- v-if="$store.state.productSetting.fundsDisplay" -->
       <el-menu-item class="banner-menu" index="disabled" disabled  v-if="$store.state.productSetting.fundsDisplay">
@@ -65,6 +71,18 @@
       </router-link>
       <router-link v-if="$store.state.productSetting.futuresDisplay" to="/futuressell" tag="li">
         <el-menu-item index="futuressell"><span class="iconfont icon-yuandianxiao"></span>期货平仓</el-menu-item>
+      </router-link>
+      <router-link to="/hkholdposition" tag="li">
+        <el-menu-item index="hkhold"><span class="iconfont icon-yuandianxiao"></span>港股持仓</el-menu-item>
+      </router-link>
+      <router-link to="/hksell" tag="li">
+        <el-menu-item index="hksell"><span class="iconfont icon-yuandianxiao"></span>港股平仓</el-menu-item>
+      </router-link>
+      <router-link to="/usholdposition" tag="li">
+        <el-menu-item index="ushold"><span class="iconfont icon-yuandianxiao"></span>美股持仓</el-menu-item>
+      </router-link>
+      <router-link to="/ussell" tag="li">
+        <el-menu-item index="ussell"><span class="iconfont icon-yuandianxiao"></span>美股平仓</el-menu-item>
       </router-link>
       <router-link to="/bjholdposition" tag="li">
         <el-menu-item index="bjhold"><span class="iconfont icon-yuandianxiao"></span>北证持仓</el-menu-item>
