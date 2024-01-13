@@ -190,7 +190,10 @@ import newFooter from '@/components/newFooter'
         },
         rule: {
           phone: [
-            { required: true, validator: validatePass, message: '请输入手机号码', trigger: 'blur' }
+            { required: true,
+              // validator: validatePass,
+              message: '请输入手机号码',
+              trigger: 'blur' }
           ],
           pwd: [
             { required: true, validator: validatePass2, message: '请输入密码', trigger: 'blur' }
@@ -366,17 +369,17 @@ import newFooter from '@/components/newFooter'
 /deep/ .user-phone input {
   border: none;
   margin-left: 10px;
-  
+
 }
 /deep/ .login-box .el-input-group__prepend {
   left: 12px;
 }
 .login-box .text-right[data-v-23b3be22]{
       margin: 25px 0 22px;
-      
+
 }
 .login-box .form-box[data-v-23b3be22]{
-  
+
     height: 400px;
     border-radius: 5px;
 }
@@ -393,7 +396,7 @@ import newFooter from '@/components/newFooter'
 }
 .red-bg {
   .user-phone {
-    
+
     border: 1px solid rgb(150, 150, 150);
     border-radius: 50px;
   }
