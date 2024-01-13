@@ -950,7 +950,7 @@
           code = stockGid
           stockGid = stockGid.split('hf_')[1]
         }
-        if (stockGid && stockGid.indexOf('%%') !== -1) stockGid = stockGid.split('%%')[0]
+        // if (stockGid && stockGid.indexOf('%%') !== -1) stockGid = stockGid.split('%%')[0]
         this.$emit('changeActiveName', 'first')
         // 股票交易
         this.$router.push({
